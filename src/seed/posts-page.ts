@@ -19,18 +19,6 @@ export const posts: Partial<Page> = {
     links: [
       {
         link: {
-          type: 'reference',
-          appearance: 'primary',
-          reference: {
-            relationTo: 'pages',
-            value: '{{SHOP_PAGE_ID}}',
-          },
-          label: 'Shop now',
-          url: '',
-        },
-      },
-      {
-        link: {
           type: 'custom',
           appearance: 'secondary',
           reference: null,
@@ -42,7 +30,36 @@ export const posts: Partial<Page> = {
     ],
     media: '{{SHIRTS_IMAGE}}',
   },
-  layout: [],
+  layout: [
+    {
+      blockName: 'Content Block',
+      blockType: 'content',
+      backgroundColor: 'white',
+      columns: [
+        {
+          size: 'full',
+          richText: [
+            {
+              children: [
+                {
+                  text: 'Here are all of your posts...',
+                },
+              ],
+            },
+          ],
+          enableLink: false,
+          link: {
+            reference: {
+              value: '',
+              relationTo: 'pages',
+            },
+            url: '',
+            label: '',
+          },
+        },
+      ],
+    },
+  ],
   meta: {
     title: 'Website ABC',
     description: 'Next.js Website with Payload CMS',
