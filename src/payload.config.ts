@@ -1,4 +1,5 @@
 import nestedDocs from '@payloadcms/plugin-nested-docs'
+import redirects from '@payloadcms/plugin-redirects'
 import seo from '@payloadcms/plugin-seo'
 import type { GenerateTitle } from '@payloadcms/plugin-seo/types'
 import path from 'path'
@@ -46,6 +47,9 @@ export default buildConfig({
   plugins: [
     nestedDocs({
       collections: ['pages', 'posts', 'categories'],
+    }),
+    redirects({
+      collections: ['pages', 'posts'],
     }),
     seo({
       collections: ['pages', 'posts'],
