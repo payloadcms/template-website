@@ -41,18 +41,6 @@ export const home: Partial<Page> = {
     links: [
       {
         link: {
-          type: 'reference',
-          appearance: 'primary',
-          reference: {
-            relationTo: 'pages',
-            value: '{{SHOP_PAGE_ID}}',
-          },
-          label: 'Shop now',
-          url: '',
-        },
-      },
-      {
-        link: {
           type: 'custom',
           appearance: 'secondary',
           reference: null,
@@ -70,93 +58,6 @@ export const home: Partial<Page> = {
       blockType: 'content',
       backgroundColor: 'white',
       columns: [
-        {
-          size: 'oneThird',
-          richText: [
-            {
-              children: [
-                {
-                  text: 'Authentication',
-                },
-              ],
-              type: 'h3',
-            },
-            {
-              children: [
-                {
-                  text: 'Customers can create an account and login to view their order history and more.',
-                },
-              ],
-            },
-          ],
-          enableLink: false,
-          link: {
-            reference: {
-              value: '',
-              relationTo: 'pages',
-            },
-            url: '',
-            label: '',
-          },
-        },
-        {
-          size: 'oneThird',
-          richText: [
-            {
-              children: [
-                {
-                  text: 'Shopping cart',
-                },
-              ],
-              type: 'h3',
-            },
-            {
-              children: [
-                {
-                  text: 'Shopping carts persist between sessions and can be accessed from any device.',
-                },
-              ],
-            },
-          ],
-          enableLink: false,
-          link: {
-            reference: {
-              value: '',
-              relationTo: 'pages',
-            },
-            url: '',
-            label: '',
-          },
-        },
-        {
-          size: 'oneThird',
-          richText: [
-            {
-              children: [
-                {
-                  text: 'Checkout',
-                },
-              ],
-              type: 'h3',
-            },
-            {
-              children: [
-                {
-                  text: 'Secure in-app checkout powered by Stripe so your customers never leave your site.',
-                },
-              ],
-            },
-          ],
-          enableLink: false,
-          link: {
-            reference: {
-              value: '',
-              relationTo: 'pages',
-            },
-            url: '',
-            label: '',
-          },
-        },
         {
           size: 'oneThird',
           richText: [
@@ -286,20 +187,7 @@ export const home: Partial<Page> = {
           ],
         },
       ],
-      links: [
-        {
-          link: {
-            type: 'reference',
-            url: '',
-            label: 'Shop now',
-            appearance: 'primary',
-            reference: {
-              value: '{{SHOP_PAGE_ID}}',
-              relationTo: 'pages',
-            },
-          },
-        },
-      ],
+      links: [],
       blockName: 'CTA',
       blockType: 'cta',
     },
