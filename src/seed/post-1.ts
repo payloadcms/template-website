@@ -19,7 +19,36 @@ export const post1: Partial<Post> = {
     links: [],
     media: '',
   },
-  layout: [],
+  layout: [
+    {
+      blockName: 'Content Block',
+      blockType: 'content',
+      backgroundColor: 'white',
+      columns: [
+        {
+          size: 'full',
+          richText: [
+            {
+              children: [
+                {
+                  text: 'Add more layout building blocks for Post 1 below here',
+                },
+              ],
+            },
+          ],
+          enableLink: false,
+          link: {
+            reference: {
+              value: '',
+              relationTo: 'pages',
+            },
+            url: '',
+            label: '',
+          },
+        },
+      ],
+    },
+  ],
   meta: {
     title: 'Post 1',
     description: 'Post 1',
