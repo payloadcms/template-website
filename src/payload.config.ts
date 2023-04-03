@@ -1,3 +1,4 @@
+import FormBuilder from '@payloadcms/plugin-form-builder'
 import { payloadCloud } from '@payloadcms/plugin-cloud'
 import nestedDocs from '@payloadcms/plugin-nested-docs'
 import seo from '@payloadcms/plugin-seo'
@@ -44,6 +45,11 @@ export default buildConfig({
   cors: [process.env.PAYLOAD_PUBLIC_APP_URL || ''].filter(Boolean),
   csrf: [process.env.PAYLOAD_PUBLIC_APP_URL || ''].filter(Boolean),
   plugins: [
+    FormBuilder({
+      fields: {
+        payment: true,
+      },
+    }),
     nestedDocs({
       collections: ['pages', 'posts', 'categories'],
     }),
