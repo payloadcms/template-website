@@ -1503,10 +1503,23 @@
     amazon-cognito-identity-js "^6.1.2"
     resend "^0.12.0"
 
+"@payloadcms/plugin-form-builder@^1.0.13":
+  version "1.0.13"
+  resolved "https://registry.yarnpkg.com/@payloadcms/plugin-form-builder/-/plugin-form-builder-1.0.13.tgz#f3c973e3064c99a76b5e7235f6afcc99bb496652"
+  integrity sha512-fRZMYKetxccGlHIeXTq2bQgUPA57nP7R4wDcd9rxTWL3q+Km8I1NYWvVYfbBU5hOZ/4c5XlmKe+3/i1ff1LOeQ==
+  dependencies:
+    deepmerge "^4.2.2"
+    escape-html "^1.0.3"
+
 "@payloadcms/plugin-nested-docs@^1.0.4":
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/@payloadcms/plugin-nested-docs/-/plugin-nested-docs-1.0.4.tgz#8a9933bbf0813839804be4fa20f9ddf401ed9bec"
   integrity sha512-vjhk3fE/uRkUSNg0UuAv/NIEvDDMRcbEHSgxOo/MbmXOT2LFsh3fPq+Gq4+cL1H9s+FStiIkygigv7J5fgOZwA==
+
+"@payloadcms/plugin-redirects@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@payloadcms/plugin-redirects/-/plugin-redirects-1.0.0.tgz#e03243cb0582b9305cac9cc3ef571a9c0beb1665"
+  integrity sha512-BAoNRSw6bT73wnxdKsR8HwaMeRwSshp4d7xfN1EfaW6IMoUYER/lHG/bwN61O2+hapvBd6fOfMuUdzy9sDazxw==
 
 "@payloadcms/plugin-seo@^1.0.10":
   version "1.0.10"
@@ -3506,7 +3519,7 @@ escalade@^3.1.1:
   resolved "https://registry.yarnpkg.com/escalade/-/escalade-3.1.1.tgz#d8cfdc7000965c5a0174b4a82eaa5c0552742e40"
   integrity sha512-k0er2gUkLf8O0zKJiAhmkTnJlTvINGv7ygDNPbeIsX/TJjGJZHuh9B2UxbsaEkmlEo9MfhrSzmhIlhRlI2GXnw==
 
-escape-html@~1.0.3:
+escape-html@^1.0.3, escape-html@~1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/escape-html/-/escape-html-1.0.3.tgz#0258eae4d3d0c0974de1c169188ef0051d1d1988"
   integrity sha512-NiSupZ4OeuGwr68lGIeym/ksIZMJodUGOSCZ/FSnTxcrekbvqrgdUxlJOMpijaKZVjAJrWrGs/6Jy8OMuyj9ow==

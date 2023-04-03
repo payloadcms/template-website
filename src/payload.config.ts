@@ -1,6 +1,7 @@
 import FormBuilder from '@payloadcms/plugin-form-builder'
 import { payloadCloud } from '@payloadcms/plugin-cloud'
 import nestedDocs from '@payloadcms/plugin-nested-docs'
+import redirects from '@payloadcms/plugin-redirects'
 import seo from '@payloadcms/plugin-seo'
 import type { GenerateTitle } from '@payloadcms/plugin-seo/types'
 import path from 'path'
@@ -52,6 +53,9 @@ export default buildConfig({
     }),
     nestedDocs({
       collections: ['pages', 'posts', 'categories'],
+    }),
+    redirects({
+      collections: ['pages', 'posts'],
     }),
     seo({
       collections: ['pages', 'posts'],
