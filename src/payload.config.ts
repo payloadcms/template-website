@@ -1,4 +1,5 @@
 import FormBuilder from '@payloadcms/plugin-form-builder'
+import { payloadCloud } from '@payloadcms/plugin-cloud'
 import nestedDocs from '@payloadcms/plugin-nested-docs'
 import seo from '@payloadcms/plugin-seo'
 import type { GenerateTitle } from '@payloadcms/plugin-seo/types'
@@ -14,13 +15,12 @@ import { Footer } from './globals/Footer'
 import { Header } from './globals/Header'
 
 const generateTitle: GenerateTitle = () => {
-  return 'My Store'
+  return 'My Website'
 }
 
 const mockModulePath = path.resolve(__dirname, './emptyModuleMock.js')
 
 export default buildConfig({
-  serverURL: 'http://localhost:8000',
   admin: {
     user: Users.slug,
     webpack: config => ({
@@ -58,5 +58,6 @@ export default buildConfig({
       generateTitle,
       uploadsCollection: 'media',
     }),
+    payloadCloud(),
   ],
 })

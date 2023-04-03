@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@payloadcms/plugin-form-builder": "^1.0.13",
+    "@payloadcms/plugin-cloud": "^1.0.0",
     "@payloadcms/plugin-nested-docs": "^1.0.4",
     "@payloadcms/plugin-seo": "^1.0.10",
     "dotenv": "^8.2.0",
