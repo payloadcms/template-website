@@ -1,5 +1,5 @@
-import FormBuilder from '@payloadcms/plugin-form-builder'
 import { payloadCloud } from '@payloadcms/plugin-cloud'
+import FormBuilder from '@payloadcms/plugin-form-builder'
 import nestedDocs from '@payloadcms/plugin-nested-docs'
 import redirects from '@payloadcms/plugin-redirects'
 import seo from '@payloadcms/plugin-seo'
@@ -43,8 +43,6 @@ export default buildConfig({
   graphQL: {
     schemaOutputFile: path.resolve(__dirname, 'generated-schema.graphql'),
   },
-  cors: [process.env.PAYLOAD_PUBLIC_APP_URL || ''].filter(Boolean),
-  csrf: [process.env.PAYLOAD_PUBLIC_APP_URL || ''].filter(Boolean),
   plugins: [
     FormBuilder({
       fields: {

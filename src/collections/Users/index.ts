@@ -1,9 +1,18 @@
-import type { CollectionConfig } from 'payload/types'
+import payload from 'payload'
+import type { CollectionConfig, FieldHook } from 'payload/types'
 
 import { admins } from '../../access/admins'
 import { anyone } from '../../access/anyone'
 import adminsAndUser from './access/adminsAndUser'
 import { checkRole } from './checkRole'
+
+const checkFirstUser: FieldHook = async ({ siblingData }) => {
+  const users = await payload.find({ collection: 'users' })
+  if (users.totalDocs > 0) return null
+  if (users.totalDocs === 0) {
+    siblingData.roles = ['admin']
+  }
+}
 
 export const UserFields: CollectionConfig['fields'] = [
   {
@@ -14,6 +23,11 @@ export const UserFields: CollectionConfig['fields'] = [
     name: 'roles',
     type: 'select',
     hasMany: true,
+    saveToJWT: true,
+    hooks: {
+      beforeChange: [checkFirstUser],
+    },
+    defaultValue: ['user'],
     options: [
       {
         label: 'admin',
@@ -24,6 +38,11 @@ export const UserFields: CollectionConfig['fields'] = [
         value: 'user',
       },
     ],
+    access: {
+      read: admins,
+      create: admins,
+      update: admins,
+    },
   },
 ]
 
