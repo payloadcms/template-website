@@ -10,10 +10,11 @@ export const formatAppURL = ({ doc }): string => {
 // Revalidate the page in the background, so the user doesn't have to wait
 // Notice that the hook itself is not async and we are not awaiting `revalidate`
 export const revalidatePage: AfterChangeHook = ({ doc, req }) => {
-  const url = formatAppURL({ doc })
-
   const revalidate = async (): Promise<void> => {
+    let url
+
     try {
+      url = formatAppURL({ doc })
       const res = await fetch(
         `${process.env.PAYLOAD_PUBLIC_SITE_URL}/api/revalidate?secret=${process.env.REVALIDATION_KEY}&revalidatePath=${url}`,
       )
