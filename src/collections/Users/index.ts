@@ -1,18 +1,10 @@
-import payload from 'payload'
-import type { CollectionConfig, FieldHook } from 'payload/types'
+import type { CollectionConfig } from 'payload/types'
 
 import { admins } from '../../access/admins'
 import { anyone } from '../../access/anyone'
 import adminsAndUser from './access/adminsAndUser'
 import { checkRole } from './checkRole'
-
-const checkFirstUser: FieldHook = async ({ siblingData }) => {
-  const users = await payload.find({ collection: 'users' })
-  if (users.totalDocs > 0) return null
-  if (users.totalDocs === 0) {
-    siblingData.roles = ['admin']
-  }
-}
+import { ensureFirstUserIsAdmin } from './hooks/ensureFirstUserIsAdmin'
 
 export const UserFields: CollectionConfig['fields'] = [
   {
@@ -25,7 +17,7 @@ export const UserFields: CollectionConfig['fields'] = [
     hasMany: true,
     saveToJWT: true,
     hooks: {
-      beforeChange: [checkFirstUser],
+      beforeChange: [ensureFirstUserIsAdmin],
     },
     defaultValue: ['user'],
     options: [
