@@ -25,7 +25,7 @@
     "@payloadcms/plugin-seo": "^1.0.10",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "payload": "^1.6.31"
+    "payload": "^1.7.2"
   },
   "devDependencies": {
     "@payloadcms/eslint-config": "^0.0.1",
