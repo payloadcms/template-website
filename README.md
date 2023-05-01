@@ -98,11 +98,21 @@ To spin up the template locally, follow these steps:
 
 1. First clone the repo
 1. Then `cd YOUR_PROJECT_REPO && cp .env.example .env`
-1. Next `yarn && yarn dev`
+1. Next `yarn && yarn dev` (or `docker-compose up -d`, see [Docker](#docker))
 1. Now open `http://localhost:8000/admin` in your browser
 1. Create your first admin user using the form on the page
 
 That's it! Changes made in `./src` will be reflected in your app—but your database is blank. You can optionally seed the database with a few pages and posts, more details on that [here](#seed).
+
+### Docker
+
+Alternatively, you can use [Docker](https://www.docker.com) to spin up this template locally. To do so, follow these steps:
+
+1. Follow [steps 1 and 2 from above](#development), the docker-compose file will automatically use the `.env` file in your project root
+1. Next run `docker-compose up -d`
+1. Follow [steps 4 and 5 from above](#development) to login and create your first admin user
+
+That's it! The Docker instance will help you get up and running quickly while also standardizing the development environment across your teams.
 
 ### Seed
 
