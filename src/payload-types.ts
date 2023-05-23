@@ -11,6 +11,7 @@ export interface Config {
     categories: Category;
     pages: Page;
     posts: Post;
+    projects: Project;
     media: Media;
     forms: Form;
     'form-submissions': FormSubmission;
@@ -38,7 +39,7 @@ export interface Category {
   id: string;
   title?: string;
   parent?: string | Category;
-  breadcrumbs: {
+  breadcrumbs?: {
     doc?: string | Category;
     url?: string;
     label?: string;
@@ -104,7 +105,7 @@ export interface Page {
             [k: string]: unknown;
           }[];
           enableLink?: boolean;
-          link: {
+          link?: {
             type?: 'reference' | 'custom';
             newTab?: boolean;
             reference: {
@@ -197,13 +198,13 @@ export interface Page {
   )[];
   slug?: string;
   parent?: string | Page;
-  breadcrumbs: {
+  breadcrumbs?: {
     doc?: string | Page;
     url?: string;
     label?: string;
     id?: string;
   }[];
-  meta: {
+  meta?: {
     title?: string;
     description?: string;
     image?: string | Media;
@@ -230,7 +231,7 @@ export interface Media {
 export interface Form {
   id: string;
   title: string;
-  fields: (
+  fields?: (
     | {
         name: string;
         label?: string;
@@ -326,7 +327,7 @@ export interface Form {
         label?: string;
         width?: number;
         basePrice?: number;
-        priceConditions: {
+        priceConditions?: {
           fieldToUse?: string;
           condition?: 'hasValue' | 'equals' | 'notEquals';
           valueForCondition?: string;
@@ -346,7 +347,7 @@ export interface Form {
   confirmationMessage: {
     [k: string]: unknown;
   }[];
-  redirect: {
+  redirect?: {
     url: string;
   };
   emails: {
@@ -421,7 +422,7 @@ export interface Post {
             [k: string]: unknown;
           }[];
           enableLink?: boolean;
-          link: {
+          link?: {
             type?: 'reference' | 'custom';
             newTab?: boolean;
             reference: {
@@ -514,13 +515,179 @@ export interface Post {
   )[];
   slug?: string;
   parent?: string | Post;
-  breadcrumbs: {
+  breadcrumbs?: {
     doc?: string | Post;
     url?: string;
     label?: string;
     id?: string;
   }[];
-  meta: {
+  meta?: {
+    title?: string;
+    description?: string;
+    image?: string | Media;
+  };
+  _status?: 'draft' | 'published';
+  createdAt: string;
+  updatedAt: string;
+}
+export interface Project {
+  id: string;
+  title: string;
+  publishedDate?: string;
+  author: string | User;
+  hero: {
+    type: 'none' | 'highImpact' | 'mediumImpact' | 'lowImpact';
+    richText: {
+      [k: string]: unknown;
+    }[];
+    links: {
+      link: {
+        type?: 'reference' | 'custom';
+        newTab?: boolean;
+        reference: {
+          value: string | Page;
+          relationTo: 'pages';
+        };
+        url: string;
+        label: string;
+        appearance?: 'default' | 'primary' | 'secondary';
+      };
+      id?: string;
+    }[];
+    media: string | Media;
+  };
+  layout: (
+    | {
+        ctaBackgroundColor?: 'white' | 'black';
+        richText: {
+          [k: string]: unknown;
+        }[];
+        links: {
+          link: {
+            type?: 'reference' | 'custom';
+            newTab?: boolean;
+            reference: {
+              value: string | Page;
+              relationTo: 'pages';
+            };
+            url: string;
+            label: string;
+            appearance?: 'primary' | 'secondary';
+          };
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: 'cta';
+      }
+    | {
+        backgroundColor?: 'white' | 'black';
+        columns: {
+          size?: 'oneThird' | 'half' | 'twoThirds' | 'full';
+          richText: {
+            [k: string]: unknown;
+          }[];
+          enableLink?: boolean;
+          link?: {
+            type?: 'reference' | 'custom';
+            newTab?: boolean;
+            reference: {
+              value: string | Page;
+              relationTo: 'pages';
+            };
+            url: string;
+            label: string;
+            appearance?: 'default' | 'primary' | 'secondary';
+          };
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: 'content';
+      }
+    | {
+        form: string | Form;
+        enableIntro?: boolean;
+        introContent: {
+          [k: string]: unknown;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: 'formBlock';
+      }
+    | {
+        mediaBlockBackgroundColor?: 'white' | 'black';
+        position?: 'default' | 'fullscreen';
+        media: string | Media;
+        id?: string;
+        blockName?: string;
+        blockType: 'mediaBlock';
+      }
+    | {
+        introContent: {
+          [k: string]: unknown;
+        }[];
+        populateBy?: 'collection' | 'selection';
+        relationTo?: 'pages';
+        categories?: string[] | Category[];
+        limit?: number;
+        selectedDocs?:
+          | (
+              | {
+                  value: string;
+                  relationTo: 'pages';
+                }
+              | {
+                  value: string;
+                  relationTo: 'posts';
+                }
+            )[]
+          | (
+              | {
+                  value: Page;
+                  relationTo: 'pages';
+                }
+              | {
+                  value: Post;
+                  relationTo: 'posts';
+                }
+            )[];
+        populatedDocs?:
+          | (
+              | {
+                  value: string;
+                  relationTo: 'pages';
+                }
+              | {
+                  value: string;
+                  relationTo: 'posts';
+                }
+            )[]
+          | (
+              | {
+                  value: Page;
+                  relationTo: 'pages';
+                }
+              | {
+                  value: Post;
+                  relationTo: 'posts';
+                }
+            )[];
+        populatedDocsTotal?: number;
+        id?: string;
+        blockName?: string;
+        blockType: 'archive';
+      }
+  )[];
+  slug?: string;
+  parent?: string | Project;
+  breadcrumbs?: {
+    doc?: string | Project;
+    url?: string;
+    label?: string;
+    id?: string;
+  }[];
+  meta?: {
     title?: string;
     description?: string;
     image?: string | Media;
@@ -537,12 +704,12 @@ export interface FormSubmission {
     value: string;
     id?: string;
   }[];
-  payment: {
+  payment?: {
     field?: string;
     status?: string;
     amount?: number;
     paymentProcessor?: string;
-    creditCard: {
+    creditCard?: {
       token?: string;
       brand?: string;
       number?: string;
@@ -564,6 +731,10 @@ export interface Redirect {
       | {
           value: string | Post;
           relationTo: 'posts';
+        }
+      | {
+          value: string | Project;
+          relationTo: 'projects';
         };
     url: string;
   };

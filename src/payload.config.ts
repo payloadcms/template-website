@@ -11,6 +11,7 @@ import Categories from './collections/Categories'
 import { Media } from './collections/Media'
 import { Pages } from './collections/Pages'
 import { Posts } from './collections/Posts'
+import { Projects } from './collections/Projects'
 import Users from './collections/Users'
 import BeforeDashboard from './components/BeforeDashboard'
 import { Footer } from './globals/Footer'
@@ -42,7 +43,7 @@ export default buildConfig({
     }),
   },
   serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL,
-  collections: [Users, Categories, Pages, Posts, Media],
+  collections: [Users, Categories, Pages, Posts, Projects, Media],
   globals: [Header, Footer],
   typescript: {
     outputFile: path.resolve(__dirname, 'payload-types.ts'),
@@ -63,13 +64,13 @@ export default buildConfig({
       },
     }),
     nestedDocs({
-      collections: ['pages', 'posts', 'categories'],
+      collections: ['pages', 'posts', 'projects', 'categories'],
     }),
     redirects({
-      collections: ['pages', 'posts'],
+      collections: ['pages', 'posts', 'projects'],
     }),
     seo({
-      collections: ['pages', 'posts'],
+      collections: ['pages', 'posts', 'projects'],
       generateTitle,
       uploadsCollection: 'media',
     }),
