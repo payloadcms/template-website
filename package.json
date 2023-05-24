@@ -18,14 +18,14 @@
     "lint:fix": "eslint --fix --ext .ts,.tsx src"
   },
   "dependencies": {
-    "@payloadcms/plugin-cloud": "^1.0.0",
+    "@payloadcms/plugin-cloud": "^2.0.0",
     "@payloadcms/plugin-form-builder": "^1.0.13",
     "@payloadcms/plugin-nested-docs": "^1.0.4",
     "@payloadcms/plugin-redirects": "^1.0.0",
     "@payloadcms/plugin-seo": "^1.0.10",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "payload": "^1.7.2"
+    "payload": "^1.8.2"
   },
   "devDependencies": {
     "@payloadcms/eslint-config": "^0.0.1",
